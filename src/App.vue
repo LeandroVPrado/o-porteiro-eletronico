@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <Header />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SiteHeader from '@/components/layout/SiteHeader.vue'
+import SiteFooter from '@/components/layout/SiteFooter.vue'
+import SocialMediaLinks from '@/components/layout/SocialMediaLinks.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SiteHeader,
+    SiteFooter,
+    SocialMediaLinks
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/css/global.scss';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  min-height: 100vh;
+}
+
+main {
+  margin-top: 80px; // Altura do header fixo
 }
 </style>
