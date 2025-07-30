@@ -22,13 +22,16 @@
           </div>
           <div class="col-md-4 text-end">
             <div class="social-links d-flex align-items-center justify-content-end gap-3">
-              <a href="#" class="social-link">
+              <a href="https://www.facebook.com/oporteiroeletronico" class="social-link" target="_blank"
+              rel="noopener" title="Facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-link">
+              <a href="https://www.instagram.com/oporteiroeletronico" class="social-link" target="_blank"
+              rel="noopener" title="Intagram">
                 <i class="fab fa-instagram"></i>
               </a>
-              <a href="#" class="social-link">
+              <a href="https://wa.me/5516992565227" class="social-link" target="_blank"
+              rel="noopener" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
               </a>
             </div>

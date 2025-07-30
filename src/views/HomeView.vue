@@ -14,8 +14,8 @@
                 <span>Inteligente e Confiável</span>
               </h1>
               <p>
-                Há mais de 35 anos oferecemos soluções completas em segurança eletrônica, 
-                automação residencial e assistência técnica especializada. Tecnologia de ponta para proteger 
+                Há mais de 35 anos oferecemos soluções completas em segurança eletrônica,
+                automação residencial e assistência técnica especializada. Tecnologia de ponta para proteger
                 o que você mais valoriza.
               </p>
               <div class="hero-buttons">
@@ -44,7 +44,7 @@
             <span class="stat-label">Anos de Experiência</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">1.000+</span>
+            <span class="stat-number">4.000+</span>
             <span class="stat-label">Clientes Atendidos</span>
           </div>
           <div class="stat-item">
@@ -62,7 +62,7 @@
         <p class="text-center text-muted mb-5">
           Oferecemos soluções completas em segurança eletrônica com tecnologia de ponta
         </p>
-        
+
         <div class="servicos-grid">
           <div class="servico-card" v-for="servico in servicos" :key="servico.id">
             <div class="servico-icon">
@@ -98,22 +98,21 @@
     <TecnologiaSection />
 
     <!-- Seção de Parceiros Melhorada -->
-    <section class="parceiros-section">
-      <div class="container">
-        <h2>Nossos Parceiros Tecnológicos</h2>
-        <p class="text-center text-muted mb-5">
-          Trabalhamos com as melhores marcas do mercado
-        </p>
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-4 d-flex justify-content-center" 
-               v-for="(parceiro, index) in parceiros" :key="index">
-            <div class="card-parceiro">
-              <img :src="parceiro" alt="Parceiro Tecnológico" class="img-fluid" />
-            </div>
+    <section class="parceiros-section py-5 bg-light">
+      <div class="container text-center mb-4">
+        <h2 class="fw-bold">Nossos Parceiros Tecnológicos</h2>
+        <p class="text-muted">Trabalhamos com as melhores marcas do mercado</p>
+      </div>
+
+      <div class="slider">
+        <div class="slide-track">
+          <div class="slide" v-for="(parceiro, index) in duplicarParceiros" :key="index">
+            <img :src="parceiro" alt="Parceiro" />
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- Seção de Contato -->
     <section class="contato-section py-5 bg-light">
@@ -158,7 +157,7 @@ export default {
   data() {
     return {
       logo: logo,
-      parceiros: [parceiro1, parceiro2, parceiro3],
+      parceiros: [parceiro1, parceiro2, parceiro3,parceiro1, parceiro2, parceiro3,parceiro1, parceiro2, parceiro3],
       servicos: [
         {
           id: 1,
@@ -225,16 +224,19 @@ export default {
       ]
     }
   },
+  computed: {
+    duplicarParceiros() {
+      return [...this.parceiros, ...this.parceiros]; // efeito de rolagem contínua duplicando os parceiros
+    }
+  },
   methods: {
     solicitarOrcamento() {
-      // Implementar lógica para abrir WhatsApp ou formulário
-      const whatsappNumber = '5516992565227'; // Substitua pelo seu número
+      const whatsappNumber = '5516992565227';
       const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para segurança eletrônica.');
       window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     },
     
     verSolucoes() {
-      // Implementar navegação para página de produtos/serviços
       this.$router.push('/servicos');
     },
     
@@ -243,21 +245,17 @@ export default {
     }
   },
   mounted() {
-    // Adicionar event listeners aos botões após o componente montar
     this.$nextTick(() => {
-      // Botão Solicitar Orçamento
       const btnOrcamento = document.querySelector('.hero-buttons .btn-primary');
       if (btnOrcamento) {
         btnOrcamento.addEventListener('click', this.solicitarOrcamento);
       }
       
-      // Botão Ver Soluções
       const btnSolucoes = document.querySelector('.hero-buttons .btn-secondary');
       if (btnSolucoes) {
         btnSolucoes.addEventListener('click', this.verSolucoes);
       }
       
-      // Botão WhatsApp
       const btnWhatsApp = document.querySelector('.contato-section .btn-primary');
       if (btnWhatsApp) {
         btnWhatsApp.addEventListener('click', this.falarWhatsApp);
@@ -265,7 +263,6 @@ export default {
     });
   },
   beforeUnmount() {
-    // Limpar event listeners
     const btnOrcamento = document.querySelector('.hero-buttons .btn-primary');
     const btnSolucoes = document.querySelector('.hero-buttons .btn-secondary');
     const btnWhatsApp = document.querySelector('.contato-section .btn-primary');
@@ -277,16 +274,17 @@ export default {
 }
 </script>
 
+
 <style scoped>
 /* Estilos específicos do componente */
 .contato-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  
+
   h3 {
     color: #1B4B8C;
     font-weight: 700;
   }
-  
+
   .btn-primary {
     background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
     border: none;
@@ -294,12 +292,12 @@ export default {
     padding: 12px 24px;
     border-radius: 25px;
     transition: all 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
     }
-    
+
     i {
       font-size: 1.2rem;
     }
@@ -317,11 +315,11 @@ export default {
 
 .stat-item {
   animation: fadeInUp 1s ease-out 0.6s both;
-  
+
   &:nth-child(2) {
     animation-delay: 0.8s;
   }
-  
+
   &:nth-child(3) {
     animation-delay: 1s;
   }
@@ -332,6 +330,7 @@ export default {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -343,6 +342,7 @@ export default {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -352,10 +352,10 @@ export default {
 /* Hover effects para cards de serviços */
 .servico-card {
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-10px);
-    
+
     .servico-icon {
       transform: scale(1.1);
     }
@@ -368,13 +368,13 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    
+
     .btn {
       width: 100%;
       max-width: 280px;
     }
   }
-  
+
   .contato-section {
     .col-lg-4 {
       text-align: center !important;
@@ -382,4 +382,45 @@ export default {
     }
   }
 }
+
+/* Parceiros Carrossel */
+.slider {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(200px * 10); /* ajuste conforme a quantidade de imagens duplicadas */
+  animation: scroll 10s linear infinite;
+}
+
+.slide {
+  width: 200px;
+  flex-shrink: 0;
+  padding: 10px;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.slide img:hover {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 </style>
