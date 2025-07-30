@@ -1,7 +1,7 @@
 <template>
   <div class="social-media">
     <a 
-      href="https://wa.me/5516937209150" 
+      href="https://wa.me/5516992565227" 
       class="social-link social-whatsapp" 
       target="_blank" 
       title="WhatsApp"
@@ -10,7 +10,7 @@
       <i class="fab fa-whatsapp"></i>
     </a>
     <a 
-      href="#" 
+      href="https://www.instagram.com/oporteiroeletronico/" 
       class="social-link social-instagram" 
       target="_blank" 
       title="Instagram"
@@ -19,7 +19,7 @@
       <i class="fab fa-instagram"></i>
     </a>
     <a 
-      href="#" 
+      href="https://www.facebook.com/oporteiroeletronico/?ref=embed_page#" 
       class="social-link social-facebook" 
       target="_blank" 
       title="Facebook"

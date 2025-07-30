@@ -2,33 +2,134 @@
   <div class="home">
     <SiteHeader />
 
-    <section class="hero text-white d-flex align-items-center">
+    <!-- Hero Section Profissional -->
+    <section class="hero-section">
       <div class="container">
         <div class="row align-items-center">
-          <!-- Texto à esquerda -->
-          <div class="col-md-6 text-start">
-            <h1 class="display-4 fw-bold mb-3">
-              Segurança e <br /> Automação <br /> para seu Lar
-            </h1>
-            <p class="lead mb-4">
-              Especialistas em portões automáticos, travas elétricas e câmeras de segurança.
-              Mais de 25 anos de experiência garantindo sua proteção.
-            </p>
-            <div class="mb-4">
-              <button class="btn btn-warning btn-lg me-3">Solicitar Orçamento</button>
-              <button class="btn btn-outline-light btn-lg">Ver Produtos</button>
-            </div>
-            <div class="stats d-flex gap-4">
-              <div><h3>35+</h3><small>Anos de Experiência</small></div>
-              <div><h3>1000+</h3><small>Clientes Satisfeitos</small></div>
-              <div><h3>24h</h3><small>Suporte Técnico</small></div>
+          <!-- Conteúdo Principal -->
+          <div class="col-lg-7">
+            <div class="hero-content">
+              <h1>
+                Segurança Eletrônica <br />
+                <span>Inteligente e Confiável</span>
+              </h1>
+              <p>
+                Há mais de 35 anos oferecemos soluções completas em segurança eletrônica, 
+                automação residencial e assistência técnica especializada. Tecnologia de ponta para proteger 
+                o que você mais valoriza.
+              </p>
+              <div class="hero-buttons">
+                <button class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Solicitar Orçamento
+                </button>
+                <button class="btn btn-secondary">
+                  <i class="fas fa-play-circle"></i>
+                  Ver Soluções
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Imagem à direita -->
-          <div class="col-md-6 text-center">
-            <img src="https://undraw.co/api/illustrations/5dd24c83-b5f4-47be-9b61-95a7fc03ad6b" class="img-fluid" />
+          <!-- Logo/Imagem -->
+          <div class="col-lg-5 text-center">
+            <img :src="logo" alt="O Porteiro Eletrônico" class="img-fluid logo-hero" />
+          </div>
+        </div>
 
+        <!-- Estatísticas -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">35+</span>
+            <span class="stat-label">Anos de Experiência</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1.000+</span>
+            <span class="stat-label">Clientes Atendidos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">ESPECIALISTA</span>
+            <span class="stat-label">Suporte Técnico</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section class="servicos-section">
+      <div class="container">
+        <h2>Nossos Serviços</h2>
+        <p class="text-center text-muted mb-5">
+          Oferecemos soluções completas em segurança eletrônica com tecnologia de ponta
+        </p>
+        
+        <div class="servicos-grid">
+          <div class="servico-card" v-for="servico in servicos" :key="servico.id">
+            <div class="servico-icon">
+              <i :class="servico.icon"></i>
+            </div>
+            <h3>{{ servico.titulo }}</h3>
+            <p>{{ servico.descricao }}</p>
+            <button class="btn btn-outline">Saiba Mais</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Diferenciais -->
+    <section class="diferenciais-section">
+      <div class="container">
+        <h2>Por Que Escolher O Porteiro Eletrônico?</h2>
+        <div class="diferenciais-grid">
+          <div class="diferencial-item" v-for="diferencial in diferenciais" :key="diferencial.id">
+            <div class="icon">
+              <i :class="diferencial.icon"></i>
+            </div>
+            <div class="content">
+              <h4>{{ diferencial.titulo }}</h4>
+              <p>{{ diferencial.descricao }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Tecnologia -->
+    <TecnologiaSection />
+
+    <!-- Seção de Parceiros Melhorada -->
+    <section class="parceiros-section">
+      <div class="container">
+        <h2>Nossos Parceiros Tecnológicos</h2>
+        <p class="text-center text-muted mb-5">
+          Trabalhamos com as melhores marcas do mercado
+        </p>
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-4 d-flex justify-content-center" 
+               v-for="(parceiro, index) in parceiros" :key="index">
+            <div class="card-parceiro">
+              <img :src="parceiro" alt="Parceiro Tecnológico" class="img-fluid" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section class="contato-section py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <h3 class="mb-3">Pronto para Proteger Seu Patrimônio?</h3>
+            <p class="text-muted mb-0">
+              Entre em contato conosco e receba um orçamento personalizado para suas necessidades.
+            </p>
+          </div>
+          <div class="col-lg-4 text-end">
+            <button class="btn btn-primary btn-lg">
+              <i class="fas fa-whatsapp"></i>
+              Falar no WhatsApp
+            </button>
           </div>
         </div>
       </div>
@@ -41,27 +142,244 @@
 <script>
 import SiteHeader from '@/components/layout/SiteHeader.vue'
 import SiteFooter from '@/components/layout/SiteFooter.vue'
+import TecnologiaSection from '@/components/sections/TecnologiaSection.vue'
+import parceiro1 from '@/assets/images/parceiro1.jpeg'
+import parceiro2 from '@/assets/images/parceiro2.jpeg'
+import parceiro3 from '@/assets/images/parceiro3.jpeg'
+import logo from '@/assets/images/logo.jpeg'
 
 export default {
   name: 'HomeView',
   components: {
     SiteHeader,
-    SiteFooter
+    SiteFooter,
+    TecnologiaSection
+  },
+  data() {
+    return {
+      logo: logo,
+      parceiros: [parceiro1, parceiro2, parceiro3],
+      servicos: [
+        {
+          id: 1,
+          icon: 'fas fa-video',
+          titulo: 'Monitoramento 24h',
+          descricao: 'Sistema de câmeras com monitoramento em tempo real e gravação em nuvem.'
+        },
+        {
+          id: 2,
+          icon: 'fas fa-door-open',
+          titulo: 'Controle de Acesso',
+          descricao: 'Portões automáticos, travas elétricas e sistemas de identificação.'
+        },
+        {
+          id: 3,
+          icon: 'fas fa-shield-alt',
+          titulo: 'Alarmes Inteligentes',
+          descricao: 'Sensores de movimento, abertura e sistemas anti-intrusão avançados.'
+        },
+        {
+          id: 4,
+          icon: 'fas fa-mobile-alt',
+          titulo: 'App Mobile',
+          descricao: 'Controle total do seu sistema de segurança pelo smartphone.'
+        },
+        {
+          id: 5,
+          icon: 'fas fa-tools',
+          titulo: 'Manutenção Preventiva',
+          descricao: 'Suporte técnico especializado e manutenção preventiva programada.'
+        },
+        {
+          id: 6,
+          icon: 'fas fa-wifi',
+          titulo: 'Automação Residencial',
+          descricao: 'Integração completa com sistemas inteligentes e IoT.'
+        }
+      ],
+      diferenciais: [
+        {
+          id: 1,
+          icon: 'fas fa-certificate',
+          titulo: '35 Anos de Experiência',
+          descricao: 'Mais de três décadas no mercado de segurança eletrônica.'
+        },
+        {
+          id: 2,
+          icon: 'fas fa-users',
+          titulo: 'Equipe Especializada',
+          descricao: 'Técnicos certificados e treinados nas melhores tecnologias.'
+        },
+        {
+          id: 3,
+          icon: 'fas fa-clock',
+          titulo: 'Atendimento técnico especializado',
+          descricao: 'Suporte técnico especializado sempre disponível.'
+        },
+        {
+          id: 4,
+          icon: 'fas fa-handshake',
+          titulo: 'Atendimento Personalizado',
+          descricao: 'Soluções customizadas para cada tipo de cliente e necessidade.'
+        }
+      ]
+    }
+  },
+  methods: {
+    solicitarOrcamento() {
+      // Implementar lógica para abrir WhatsApp ou formulário
+      const whatsappNumber = '5516992565227'; // Substitua pelo seu número
+      const message = encodeURIComponent('Olá! Gostaria de solicitar um orçamento para segurança eletrônica.');
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    },
+    
+    verSolucoes() {
+      // Implementar navegação para página de produtos/serviços
+      this.$router.push('/servicos');
+    },
+    
+    falarWhatsApp() {
+      this.solicitarOrcamento();
+    }
+  },
+  mounted() {
+    // Adicionar event listeners aos botões após o componente montar
+    this.$nextTick(() => {
+      // Botão Solicitar Orçamento
+      const btnOrcamento = document.querySelector('.hero-buttons .btn-primary');
+      if (btnOrcamento) {
+        btnOrcamento.addEventListener('click', this.solicitarOrcamento);
+      }
+      
+      // Botão Ver Soluções
+      const btnSolucoes = document.querySelector('.hero-buttons .btn-secondary');
+      if (btnSolucoes) {
+        btnSolucoes.addEventListener('click', this.verSolucoes);
+      }
+      
+      // Botão WhatsApp
+      const btnWhatsApp = document.querySelector('.contato-section .btn-primary');
+      if (btnWhatsApp) {
+        btnWhatsApp.addEventListener('click', this.falarWhatsApp);
+      }
+    });
+  },
+  beforeUnmount() {
+    // Limpar event listeners
+    const btnOrcamento = document.querySelector('.hero-buttons .btn-primary');
+    const btnSolucoes = document.querySelector('.hero-buttons .btn-secondary');
+    const btnWhatsApp = document.querySelector('.contato-section .btn-primary');
+    
+    if (btnOrcamento) btnOrcamento.removeEventListener('click', this.solicitarOrcamento);
+    if (btnSolucoes) btnSolucoes.removeEventListener('click', this.verSolucoes);
+    if (btnWhatsApp) btnWhatsApp.removeEventListener('click', this.falarWhatsApp);
   }
 }
 </script>
 
 <style scoped>
-.hero {
-  background: linear-gradient(to bottom right, #004AAD, #00BCD4);
-  min-height: 100vh;
-  padding: 60px 0;
+/* Estilos específicos do componente */
+.contato-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  
+  h3 {
+    color: #1B4B8C;
+    font-weight: 700;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    border: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+    }
+    
+    i {
+      font-size: 1.2rem;
+    }
+  }
 }
-h3 {
-  font-weight: bold;
-  margin-bottom: 0;
+
+/* Animações para entrada dos elementos */
+.hero-content {
+  animation: fadeInUp 1s ease-out;
 }
-.stats small {
-  color: #ddd;
+
+.logo-hero {
+  animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.stat-item {
+  animation: fadeInUp 1s ease-out 0.6s both;
+  
+  &:nth-child(2) {
+    animation-delay: 0.8s;
+  }
+  
+  &:nth-child(3) {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover effects para cards de serviços */
+.servico-card {
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-10px);
+    
+    .servico-icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+    .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+  
+  .contato-section {
+    .col-lg-4 {
+      text-align: center !important;
+      margin-top: 1rem;
+    }
+  }
 }
 </style>
