@@ -275,7 +275,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 /* Estilos específicos do componente */
 .contato-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);

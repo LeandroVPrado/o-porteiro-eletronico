@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/variables.scss';
+@use '@/assets/css/variables.scss' as *;
 
 .products {
   background: $bg-light;

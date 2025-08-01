@@ -1,6 +1,4 @@
-@import './variables.scss';
-@import '~@fortawesome/fontawesome-free/css/all.css';
-
+@use "@/assets/scss/_variables.scss" as *;
 * {
   margin: 0;
   padding: 0;

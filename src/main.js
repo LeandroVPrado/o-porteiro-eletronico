@@ -1,23 +1,28 @@
+// main.js
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+
+// ** Global CSS/SCSS **
+// (reset, mixins, variáveis que geram CSS etc)
+import '@/assets/scss/_globals.scss'
+import '@/assets/scss/_base.scss'
+import '@/assets/scss/fontawesome.scss';
+
+
 
 // AOS Animations
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-// Font Awesome
-import '@fortawesome/fontawesome-free/css/all.min.css'
-
 // Service Worker
 import './registerServiceWorker'
 
-
-
 const app = createApp(App)
 
-app.use(router)
-app.mount('#app')
+app
+  .use(router)
+  .mount('#app')
 
 // Initialize AOS
 AOS.init({

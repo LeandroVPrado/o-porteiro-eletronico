@@ -8,11 +8,11 @@
             <div class="contact-info d-flex align-items-center gap-4">
               <span class="contact-item">
                 <i class="fas fa-phone"></i>
-                (16) 99256-5227
+                (16) 3720-8150 / (16) 99256-5227
               </span>
               <span class="contact-item">
                 <i class="fas fa-envelope"></i>
-                contato@oporteiroeletronico.com.br
+                oporteiro.eletronico@hotmail.com
               </span>
               <span class="contact-item">
                 <i class="fas fa-clock"></i>
@@ -132,7 +132,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* Barra Superior */
 .top-bar {
   background: linear-gradient(135deg, #1B4B8C 0%, #2E5B9B 100%);

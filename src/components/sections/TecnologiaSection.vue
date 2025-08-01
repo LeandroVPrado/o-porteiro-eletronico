@@ -263,7 +263,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* Seção Tecnologia */
 .tecnologia-section {
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);

@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <!-- Bloco Central com Logo, Nome e Redes Sociais -->
+    <!-- Bloco Central com Logo, Nome, Redes Sociais e Contato -->
     <div class="footer-main py-4">
       <div class="container text-center">
         <img :src="logo" alt="Logo O Porteiro Eletrônico" class="footer-logo mb-3" />
@@ -18,6 +18,12 @@
           <a href="https://www.youtube.com/@oporteiroeletronico" class="social-link youtube" target="_blank" rel="noopener" title="YouTube">
             <i class="fab fa-youtube"></i>
           </a>
+        </div>
+        <!-- Informações de Contato -->
+        <div class="contact-details mb-3">
+          <p><i class="fas fa-map-marker-alt me-2"></i>R. Simpliciano Pombo, 510 - Vila Santos Dumont, Franca - SP, 14405-338</p>
+          <p><i class="fas fa-phone me-2"></i>(16) 3720-8150 / (16) 99256-5227</p>
+          <p><i class="fas fa-envelope me-2"></i>oporteiro.eletronico@hotmail.com</p>
         </div>
       </div>
     </div>
@@ -59,7 +65,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
 .site-footer {
   background: linear-gradient(135deg, #1B4B8C 0%, #2C3E50 100%);
   color: white;
@@ -110,6 +116,22 @@ export default {
     &:hover {
       transform: translateY(-3px);
       opacity: 0.9;
+    }
+  }
+}
+
+/* Estilo das Informações de Contato */
+.contact-details {
+  p {
+    margin: 4px 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      font-size: 1.1rem;
     }
   }
 }

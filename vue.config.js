@@ -13,7 +13,9 @@ module.exports = defineConfig({
   css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "@/assets/css/variables.scss";`
+        implementation: require('sass'),
+        // se quiser manter variáveis disponíveis em todo componente:
+        additionalData: `@use "@/assets/scss/_variables.scss" as *;`
       }
     }
   }

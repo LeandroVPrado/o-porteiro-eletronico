@@ -90,7 +90,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 img {
   transition: transform 0.3s ease;
 }

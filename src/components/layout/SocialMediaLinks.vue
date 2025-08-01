@@ -44,7 +44,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/css/variables.scss';
+@use "@/assets/scss/_variables.scss" as *;
+@use "@/assets/scss/_globals.scss"   as *;
 
 .social-media {
   position: fixed;

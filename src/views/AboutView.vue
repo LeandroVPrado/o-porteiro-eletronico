@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .section-title {
   font-size: 2.4rem;
   font-weight: 700;
